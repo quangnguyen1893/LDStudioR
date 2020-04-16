@@ -38,12 +38,13 @@
         <thead>
           <tr>
             <th style="width:20px;">
-              <label class="i-checks m-b-none">
+              {{-- <label class="i-checks m-b-none">
                 <input type="checkbox"><i></i>
-              </label>
+              </label> --}}
             </th>
             <th>Tên danh mục</th>
-            <th>Slug</th>
+            {{-- <th>Slug</th> --}}
+            <th>Mô tả</th>
             <th>Hiển thị</th>
             
             <th style="width:30px;"></th>
@@ -54,10 +55,11 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $cate_pro->category_name }}</td>
-            <td>{{ $cate_pro->slug_category_product }}</td>
+            <td>{{ $cate_pro->category_desc }}</td>
+            {{-- <td>{{ $cate_pro->slug_category_product }}</td> --}}
             <td><span class="text-ellipsis">
               <?php
-               if($cate_pro->category_status==0){
+               if($cate_pro->category_status==1){
                 ?>
                 <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
                 <?php

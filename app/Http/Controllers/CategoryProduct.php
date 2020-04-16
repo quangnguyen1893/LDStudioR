@@ -35,7 +35,7 @@ class CategoryProduct extends Controller
         $this->AuthLogin();
     	$data = array();
     	$data['category_name'] = $request->category_product_name;
-        $data['slug_category_product'] = $request->slug_category_product;
+        // $data['slug_category_product'] = $request->slug_category_product;
     	$data['category_desc'] = $request->category_product_desc;
     	$data['category_status'] = $request->category_product_status;
 
@@ -45,14 +45,14 @@ class CategoryProduct extends Controller
     }
     public function unactive_category_product($category_product_id){
         $this->AuthLogin();
-        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>0]);
         Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
 
     }
     public function active_category_product($category_product_id){
         $this->AuthLogin();
-        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>0]);
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
         Session::put('message','Kích hoạt danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
     }
@@ -68,7 +68,7 @@ class CategoryProduct extends Controller
         $this->AuthLogin();
         $data = array();
         $data['category_name'] = $request->category_product_name;
-        $data['slug_category_product'] = $request->slug_category_product;
+        /*$data['slug_category_product'] = $request->slug_category_product;*/
         $data['category_desc'] = $request->category_product_desc;
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
         Session::put('message','Cập nhật danh mục sản phẩm thành công');

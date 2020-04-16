@@ -43,7 +43,7 @@
               </label>
             </th>
             <th>Tên thương hiệu</th>
-            <th>Brand Slug</th>
+            <th>Mô tả thương hiệu</th>
             <th>Hiển thị</th>
             
             <th style="width:30px;"></th>
@@ -54,10 +54,10 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $brand_pro->brand_name }}</td>
-            <td>{{ $brand_pro->brand_slug }}</td>
+            <td>{{ $brand_pro->brand_desc }}</td>
             <td><span class="text-ellipsis">
               <?php
-               if($brand_pro->brand_status==0){
+               if($brand_pro->brand_status==1){
                 ?>
                 <a href="{{URL::to('/unactive-brand-product/'.$brand_pro->brand_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
                 <?php
